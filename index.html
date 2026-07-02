@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Innova Labs</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="offices-section.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+<body>
+
+  <!-- background canvas: lightweight starfield only, no globe/sphere -->
+  <canvas id="bg"></canvas>
+
+  <!-- ── NAVBAR ── -->
+  <header id="navbar">
+    <a href="#home" class="nav-logo">Innova<span>Labs</span></a>
+
+    <nav id="nav-links">
+      <a href="#home" class="nav-link active">Home</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#global-offices" class="nav-link nav-offices" id="offices-nav-link">
+        <i class="fas fa-earth-americas"></i> Global Offices
+      </a>
+      <a href="#contact" class="nav-link nav-cta">Contact</a>
+    </nav>
+
+    <button id="nav-toggle" aria-label="Toggle menu">
+      <i class="fas fa-bars"></i>
+    </button>
+  </header>
+
+  <!-- ── HERO ── -->
+  <section id="home" class="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-content reveal">
+      <p class="tag">Welcome to the Future</p>
+      <h1>Building Tomorrow's<br /><span class="glow">Digital Reality</span></h1>
+      <p class="sub">
+        Innova Labs is a Faridabad-based tech studio crafting AI, software,
+        and digital innovation for the next generation of founders.
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary"><i class="fas fa-rocket"></i> Explore Our Work</a>
+        <a href="#contact" class="btn btn-ghost"><i class="fas fa-paper-plane"></i> Get In Touch</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="num">120+</div><div class="lbl">Projects</div></div>
+        <div class="hero-stat"><div class="num">50+</div><div class="lbl">Clients</div></div>
+        <div class="hero-stat"><div class="num">5+</div><div class="lbl">Years</div></div>
+        <div class="hero-stat"><div class="num">98%</div><div class="lbl">Satisfaction</div></div>
+      </div>
+    </div>
+    <a href="#about" class="scroll-cue" aria-label="Scroll down">
+      <i class="fas fa-chevron-down"></i>
+    </a>
+  </section>
+
+  <!-- ── ABOUT ── -->
+  <section id="about" class="section">
+    <p class="eyebrow reveal">Who We Are</p>
+    <h2 class="section-heading reveal">We Build <span>Experiences</span></h2>
+    <p class="section-text reveal">
+      Innova Labs is a Faridabad-based tech studio pushing boundaries in AI,
+      software, and digital innovation — partnering with founders to turn
+      bold ideas into polished, scalable products.
+    </p>
+  </section>
+
+  <!-- ── SERVICES ── -->
+  <section id="services" class="section">
+    <p class="eyebrow reveal">What We Do</p>
+    <h2 class="section-heading reveal">Our <span>Services</span></h2>
+    <div class="card-grid">
+      <div class="info-card reveal">
+        <i class="fas fa-brain"></i>
+        <h4>AI Solutions</h4>
+        <p>ML models &amp; NLP pipelines built for production.</p>
+      </div>
+      <div class="info-card reveal">
+        <i class="fas fa-code"></i>
+        <h4>Custom Software</h4>
+        <p>Full-stack engineering, built to scale.</p>
+      </div>
+      <div class="info-card reveal">
+        <i class="fas fa-globe"></i>
+        <h4>Web Experiences</h4>
+        <p>Immersive, premium digital products.</p>
+      </div>
+      <div class="info-card reveal">
+        <i class="fas fa-robot"></i>
+        <h4>Automation</h4>
+        <p>End-to-end workflow automation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROJECTS ── -->
+  <section id="projects" class="section">
+    <p class="eyebrow reveal">Our Work</p>
+    <h2 class="section-heading reveal">Featured <span>Projects</span></h2>
+    <div class="card-grid">
+      <div class="info-card reveal">
+        <i class="fas fa-robot"></i>
+        <h4>NeuralDesk</h4>
+        <p>AI support — 70% faster resolution.</p>
+      </div>
+      <div class="info-card reveal">
+        <i class="fas fa-credit-card"></i>
+        <h4>PayFlow Pro</h4>
+        <p>Real-time fintech payments dashboard.</p>
+      </div>
+      <div class="info-card reveal">
+        <i class="fas fa-heartbeat"></i>
+        <h4>MediSync</h4>
+        <p>Patient records &amp; scheduling.</p>
+      </div>
+      <div class="info-card reveal">
+        <i class="fas fa-shopping-cart"></i>
+        <h4>ShopMatrix</h4>
+        <p>Headless commerce + AI recommendations.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── GLOBAL OFFICES ── -->
+  <section id="global-offices" class="section go-section">
+    <p class="eyebrow reveal">🌐 Worldwide Presence</p>
+    <h2 class="section-heading reveal">Our <span>Global</span> Offices</h2>
+    <p class="section-text reveal">
+      Connecting innovation across continents through strategically
+      located offices serving clients around the world.
+    </p>
+
+    <!-- quick stats -->
+    <div class="go-stats reveal">
+      <div class="go-stat"><div class="num">6</div><div class="lbl">Offices</div></div>
+      <div class="go-stat"><div class="num">6</div><div class="lbl">Continents</div></div>
+      <div class="go-stat"><div class="num">500+</div><div class="lbl">Engineers</div></div>
+    </div>
+
+    <!-- two-column body -->
+    <div class="go-body">
+      <!-- LEFT — city list -->
+      <div class="go-left">
+        <div id="office-cards"></div>
+      </div>
+      <!-- RIGHT — Earth globe -->
+      <div class="go-right">
+        <canvas id="earth-canvas"></canvas>
+        <div class="go-earth-hint">
+          <i class="fas fa-hand-pointer"></i>&nbsp; Drag to rotate · Click a city or marker
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section id="contact" class="section">
+    <p class="eyebrow reveal">Get In Touch</p>
+    <h2 class="section-heading reveal">Let's Build <span>Together</span></h2>
+    <p class="section-text reveal">Have a project in mind? We reply within 24 hours.</p>
+    <form class="contact-form reveal" onsubmit="submitContact(event)">
+      <input type="text"  placeholder="Your Name"       required />
+      <input type="email" placeholder="Email Address"   required />
+      <textarea rows="4"  placeholder="Your project idea..." required></textarea>
+      <button type="submit"><i class="fas fa-paper-plane"></i> Send Message</button>
+    </form>
+  </section>
+
+  <!-- social icons bottom right -->
+  <div id="socials" style="z-index:10;">
+    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+  </div>
+
+  <!-- Earth marker tooltip (positioned by earth.js) -->
+  <div id="earth-tooltip"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"
+    integrity="sha512-vnmn/Qqn6aG0POAc9mIGzjq0IybrvxJXYDafNvp9JSnDGxeF3pbkSqLvf+YGd5ku63pT7sa/jxHn7/d0mU8+tA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="script.js"></script>
+  <!-- Global Offices scripts (depend on Three.js being loaded above) -->
+  <script src="locations.js"></script>
+  <script src="earth.js"></script>
+  <script src="office-section.js"></script>
+</body>
+</html>
