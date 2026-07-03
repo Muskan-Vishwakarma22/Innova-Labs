@@ -71,10 +71,17 @@ function maybeInitEarth() {
   if (earthInstance) return;
   const canvasEl = document.getElementById('earth-canvas');
   if (!canvasEl) return;
-  // Give the canvas a moment to have its layout dimensions
-  requestAnimationFrame(() => {
-    earthInstance = initEarth(canvasEl);
-  });
+
+  function tryInit(attempts) {
+    const w = canvasEl.clientWidth  || canvasEl.offsetWidth;
+    const h = canvasEl.clientHeight || canvasEl.offsetHeight;
+    if (w > 0 && h > 0) {
+      earthInstance = initEarth(canvasEl);
+    } else if (attempts > 0) {
+      setTimeout(() => tryInit(attempts - 1), 80);
+    }
+  }
+  requestAnimationFrame(() => tryInit(10));
 }
 
 /* ── Wire everything up on DOMContentLoaded ── */

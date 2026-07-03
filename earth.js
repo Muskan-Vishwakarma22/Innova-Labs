@@ -104,10 +104,12 @@ function initEarth(canvasEl) {
   const renderer = new THREE.WebGLRenderer({ canvas: canvasEl, antialias: true, alpha: true });
   renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
   renderer.setClearColor(0x000000, 0);
-  renderer.setSize(canvasEl.clientWidth, canvasEl.clientHeight);
+  const initW = canvasEl.clientWidth  || canvasEl.offsetWidth  || 400;
+  const initH = canvasEl.clientHeight || canvasEl.offsetHeight || 400;
+  renderer.setSize(initW, initH);
 
   const scene  = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(45, canvasEl.clientWidth / canvasEl.clientHeight, 0.1, 100);
+  const camera = new THREE.PerspectiveCamera(45, initW / initH, 0.1, 100);
   camera.position.z = 4.2;
 
   scene.add(new THREE.AmbientLight(0xffffff, 0.6));
@@ -323,14 +325,17 @@ function initEarth(canvasEl) {
     "></div>
   `;
   canvasEl.parentElement.style.position = 'relative';
+  canvasEl.parentElement.style.overflow  = 'hidden';
   canvasEl.parentElement.appendChild(cityLabel);
   const cityLabelText = cityLabel.querySelector('#globe-city-label-text');
 
   function projectToScreen(worldPos) {
     const v = worldPos.clone().project(camera);
+    const w = canvasEl.clientWidth  || canvasEl.offsetWidth  || 400;
+    const h = canvasEl.clientHeight || canvasEl.offsetHeight || 400;
     return {
-      x: ( v.x + 1) / 2 * canvasEl.clientWidth,
-      y: (-v.y + 1) / 2 * canvasEl.clientHeight,
+      x: ( v.x + 1) / 2 * w,
+      y: (-v.y + 1) / 2 * h,
       behind: v.z > 1,
     };
   }
@@ -419,8 +424,11 @@ function initEarth(canvasEl) {
   loop();
 
   function onResize() {
-    renderer.setSize(canvasEl.clientWidth, canvasEl.clientHeight);
-    camera.aspect = canvasEl.clientWidth / canvasEl.clientHeight;
+    const w = canvasEl.clientWidth  || canvasEl.offsetWidth;
+    const h = canvasEl.clientHeight || canvasEl.offsetHeight;
+    if (!w || !h) return;
+    renderer.setSize(w, h);
+    camera.aspect = w / h;
     camera.updateProjectionMatrix();
   }
   window.addEventListener('resize', onResize);

@@ -48,7 +48,7 @@
 /* ── Two-column body ── */
 .go-body {
   display: grid;
-  grid-template-columns: minmax(260px, 340px) 1fr;
+  grid-template-columns: minmax(240px, 320px) 1fr;
   gap: 32px;
   margin-top: 40px;
   align-items: start;
@@ -139,7 +139,7 @@
   border: 1px solid var(--border);
   background: radial-gradient(ellipse at center, rgba(0,10,30,0.8) 0%, rgba(5,8,22,0.5) 70%);
   height: 560px;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .go-right::before {
@@ -163,16 +163,20 @@
 
 .go-earth-hint {
   position: absolute;
-  bottom: 16px;
+  bottom: 12px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 0.65rem;
-  letter-spacing: 2px;
+  font-size: 0.62rem;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
   color: rgba(0,229,255,0.4);
   pointer-events: none;
   z-index: 5;
   white-space: nowrap;
+  max-width: 90%;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* ── Earth tooltip ── */
@@ -225,23 +229,50 @@
 @media (max-width: 960px) {
   .go-body {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 24px;
   }
-  #office-cards { max-height: 260px; }
-  .go-right      { height: 400px; }
+  /* on tablet/mobile globe comes FIRST, cards below */
+  .go-right { order: -1; }
+  .go-left  { order: 1; }
+
+  #office-cards {
+    max-height: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    overflow: visible;
+    padding-right: 0;
+  }
+  .go-right { height: 420px; }
 }
 
 @media (max-width: 700px) {
   #global-offices { padding: 80px 16px 60px; }
-  .go-right        { height: 340px; }
+  .go-right        { height: 360px; }
   .go-stats        { gap: 10px; }
-  .go-stat         { padding: 10px 18px; }
+  .go-stat         { padding: 10px 16px; min-width: 80px; }
+  #office-cards {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
 }
 
 @media (max-width: 480px) {
-  #global-offices  { padding: 60px 14px 50px; }
-  .go-right        { height: 280px; }
+  #global-offices  { padding: 60px 12px 50px; }
+  .go-right        { height: 300px; border-radius: 14px; }
   .go-stat .num    { font-size: 1.2rem; }
-  .go-earth-hint   { font-size: 0.58rem; letter-spacing: 1px; }
-  #office-cards    { max-height: 220px; }
+  .go-stat .lbl    { font-size: 0.6rem; }
+  .go-earth-hint   { font-size: 0.55rem; letter-spacing: 0.8px; bottom: 8px; }
+  #office-cards    {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .office-card     { padding: 9px 10px; }
+  .oc-city         { font-size: 0.82rem; }
+  .oc-region       { font-size: 0.66rem; }
+  .oc-team         { font-size: 0.62rem; }
+}
+
+@media (max-width: 360px) {
+  .go-right        { height: 260px; }
+  #office-cards    { grid-template-columns: 1fr; }
 }
